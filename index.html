@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mendoza Reporta</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">📍</span>
+    <div><h1>Mendoza Reporta</h1><p>Una ciudad mejor empieza con un reporte</p></div>
+  </div>
+  <nav>
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('reportar')">Reportar</button>
+    <button onclick="mostrarSeccion('reportes')">Reportes</button>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio" class="seccion activa">
+    <div class="hero">
+      <div>
+        <span class="badge">SEMINARIO · NUEVAS TECNOLOGÍAS</span>
+        <h2>Reportá problemas de tu barrio de forma rápida y organizada.</h2>
+        <p>Mendoza Reporta permite registrar baches, luminarias que no funcionan, residuos, veredas dañadas y otros problemas urbanos.</p>
+        <button class="principal" onclick="mostrarSeccion('reportar')">Crear un reporte</button>
+      </div>
+      <div class="hero-card">🏙️<br><strong>Tu reporte importa</strong><small>Registrá una situación y consultala cuando quieras.</small></div>
+    </div>
+    <div class="cards">
+      <article><span>📝</span><h3>Registrá</h3><p>Indicá el problema, la zona, una descripción y su prioridad.</p></article>
+      <article><span>📋</span><h3>Consultá</h3><p>Visualizá los reportes guardados desde este navegador.</p></article>
+      <article><span>📱</span><h3>Accedé</h3><p>La aplicación está pensada para computadora y celular.</p></article>
+    </div>
+  </section>
+
+  <section id="reportar" class="seccion">
+    <div class="panel">
+      <h2>Crear nuevo reporte</h2>
+      <p class="sub">Completá los datos del problema que observaste.</p>
+      <form id="reporteForm">
+        <label>Tipo de problema
+          <select id="tipo" required>
+            <option value="">Seleccionar...</option>
+            <option>Bache</option>
+            <option>Luminaria apagada</option>
+            <option>Acumulación de residuos</option>
+            <option>Vereda dañada</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Calle o zona
+          <input id="zona" type="text" placeholder="Ej.: Calle San Martín 1200" required>
+        </label>
+        <label>Descripción
+          <textarea id="descripcion" rows="5" placeholder="Describí brevemente el problema..." required></textarea>
+        </label>
+        <label>Prioridad
+          <select id="prioridad" required>
+            <option value="">Seleccionar...</option>
+            <option>Baja</option>
+            <option>Media</option>
+            <option>Alta</option>
+          </select>
+        </label>
+        <button class="principal" type="submit">Enviar reporte</button>
+        <p id="mensaje" class="mensaje"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="reportes" class="seccion">
+    <div class="section-title">
+      <div><h2>Reportes registrados</h2><p class="sub">Información guardada en este navegador.</p></div>
+      <button class="secundario" onclick="borrarTodos()">Borrar todos</button>
+    </div>
+    <div id="listaReportes" class="lista"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Mendoza Reporta · Trabajo Práctico N.º 2 · Seminario Nuevas Tecnologías</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
